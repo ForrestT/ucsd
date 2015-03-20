@@ -1,0 +1,149 @@
+proteus SOAP XML
+
+
+ENVELOPE
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns0="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns1="http://api.proteus.bluecatnetworks.com" xmlns:ns2="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<SOAP-ENV:Header/>
+	<ns2:Body>
+		...
+		...
+		...
+	</ns2:Body>
+</SOAP-ENV:Envelope>
+
+
+
+
+
+login
+
+	<ns2:Body>
+		<ns1:login>
+			<username>bluecatapi</username>
+			<password>1234qwer</password>
+		</ns1:login>
+	</ns2:Body>
+</SOAP-ENV:Envelope>
+
+
+
+getEntityByName
+
+	<ns2:Body>
+		<ns1:getEntityByName>
+			<parentId>0</parentId>
+			<name>Lab</name>
+			<type>Configuration</type>
+		</ns1:getEntityByName>
+	</ns2:Body>
+</SOAP-ENV:Envelope>
+
+
+
+getIPRangedByIP
+
+	<ns2:Body>
+		<ns1:getIPRangedByIP>
+			<containerId>7</containerId>
+			<type>IP4Network</type>
+			<address>10.168.50.0</address>
+		</ns1:getIPRangedByIP>
+	</ns2:Body>
+</SOAP-ENV:Envelope>
+
+
+
+getNextIP4Address
+
+	<ns2:Body>
+		<ns1:getNextIP4Address>
+			<parentId>22</parentId>
+			<properties>offset=10.168.50.31|excludeDHCPRange=False</properties>
+		</ns1:getNextIP4Address>
+	</ns2:Body>
+</SOAP-ENV:Envelope>
+
+
+
+assignIP4Address
+
+	<ns2:Body>
+		<ns1:assignIP4Address>
+			<configurationId>7</configurationId>
+			<ip4Address>10.168.50.32</ip4Address>
+			<macAddress></macAddress>
+			<hostInfo></hostInfo>
+			<action>MAKE_STATIC</action>
+			<properties>name=forrest-test10</properties>
+		</ns1:assignIP4Address>
+	</ns2:Body>
+</SOAP-ENV:Envelope>
+
+
+
+getIP4Address
+
+	<ns2:Body>
+		<ns1:getIP4Address>
+			<containerId>22</containerId>
+			<address>10.168.50.32</address>
+		</ns1:getIP4Address>
+	</ns2:Body>
+</SOAP-ENV:Envelope>
+
+
+
+getDeploymentRoles
+
+	<ns2:Body>
+		<ns1:getDeploymentRoles>
+			<entityId>22</entityId>
+		</ns1:getDeploymentRoles>
+	</ns2:Body>
+</SOAP-ENV:Envelope>
+
+
+
+getServerForRole
+
+	<ns2:Body>
+		<ns1:getServerForRole>
+			<roleId>26</roleId>
+		</ns1:getServerForRole>
+	</ns2:Body>
+</SOAP-ENV:Envelope>
+
+
+
+deployServerConfig
+
+	<ns2:Body>
+		<ns1:deployServerConfig>
+			<serverId>19</serverId>
+			<properties>services=DHCP</properties>
+		</ns1:deployServerConfig>
+	</ns2:Body>
+</SOAP-ENV:Envelope>
+
+
+
+getServerDeploymentStatus
+
+	<ns2:Body>
+		<ns1:getServerDeploymentStatus>
+			<serverId>19</serverId>
+			<properties></properties>
+		</ns1:getServerDeploymentStatus>
+	</ns2:Body>
+</SOAP-ENV:Envelope>
+
+
+
+logout
+
+	<ns2:Body>
+		<ns1:logout/>
+	</ns2:Body>
+</SOAP-ENV:Envelope>

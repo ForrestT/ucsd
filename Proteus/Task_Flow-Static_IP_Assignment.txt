@@ -1,0 +1,95 @@
+Task Flow - Static IP Assignment
+
+TASK INPUTS:	hostname,	network_IP
+
+
+
+	input: none
+
+login(	username,	password)
+
+	output: cookie
+
+
+
+	input: cookie
+
+getEntityByName(	parent_id=0,	config_Name='Lab',	Type='Configuration')
+
+	output: config_id (shouldn't change, maybe sip and hard-code?)
+
+
+
+	input: cookie,	config_id,	IP_Address/Net_Address
+
+getIPRangedByIP(	config_id,	type='IP4Network',	IP_Address)
+
+	output:	net_id,	net_name,	net_properties
+
+
+
+	input:	cookie,	net_id
+
+getNextIP4Address(	net_id,	getNext_properties='offset=10.168.50.31|excludeDHCPRange=False')
+
+	output:	assigned_IP
+
+
+
+	input:	cookie,	config_id,	assigned_IP,	hostname
+
+assignIP4Address(	config_id,	assigned_IP,	mac_addr,	hostinfo,	action,	ip_properties)
+
+	output:	ip_ID
+
+
+
+	input:	cookie,	net_id,	assigned_IP
+
+getIP4Address(	net_id,	assigned_IP)
+
+	output:
+
+
+
+	input:	cookie,	net_id
+
+getDeploymentRoles(	net_id)
+
+	output:	deployment_ID
+
+
+
+	input:	cookie,	deployment_ID
+
+getServerForRole(	deployment_ID)
+
+	output:	server_ID
+
+
+
+	input:	cookie,	server_ID
+
+deployServerConfig(	server_id,	'services=DHCP')
+
+	output:	n/a
+
+
+
+	input:	cookie,	server_ID
+
+getServerDeploymentStatus(	server_ID,	'')
+
+	output:	n/a
+
+
+
+	input:	cookie
+
+logout()
+
+	output: n/a
+
+
+
+TASK OUTPUTS:	assigned_IP,	net_cidr,	net_gw

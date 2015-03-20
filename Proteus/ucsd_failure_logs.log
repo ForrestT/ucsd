@@ -1,0 +1,111 @@
+Service Request ID: 48
+Workflow Inputs:
+ - Bluecat_Network
+ - BlueCat_Device_Name
+
+
+Mar 12, 2015 20:20:47 UTC Request submitted
+Mar 12, 2015 20:20:52 UTC Executing workflow item number 1
+Mar 12, 2015 20:20:52 UTC Completed workflow item number 1, with status Completed
+Mar 12, 2015 20:20:55 UTC Executing workflow item number 2
+Mar 12, 2015 20:20:55 UTC Trigger context executeWorkFlowStep called 
+Mar 12, 2015 20:20:55 UTC Executing custom action Test-Bluecat-1 (custom_Lab_Bluecat_Login_Logout)
+Mar 12, 2015 20:20:55 UTC Executing custom action Test-Bluecat-1 (custom_Lab_Bluecat_Login_Logout)
+Mar 12, 2015 20:20:55 UTC Executing custom script for Lab_Bluecat_Login_Logout
+Mar 12, 2015 20:20:56 UTC DEBUG userName = bluecatapi
+Mar 12, 2015 20:20:56 UTC <SOAP-ENV:Envelope xmlns:SOAP-ENC='http://schemas.xmlsoap.org/soap/encoding/' xmlns:ns0='http://schemas.xmlsoap.org/soap/encoding/' xmlns:ns1='http://api.proteus.bluecatnetworks.com' xmlns:ns2='http://schemas.xmlsoap.org/soap/envelope/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/' SOAP-ENV:encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'><SOAP-ENV:Header/><ns2:Body><ns1:login><username>bluecatapi</username><password>1234qwer</password></ns1:login></ns2:Body></SOAP-ENV:Envelope>
+Mar 12, 2015 20:20:56 UTC Response status code: 200
+Mar 12, 2015 20:20:56 UTC Status message : OK
+Mar 12, 2015 20:20:56 UTC Response body: <env:Envelope xmlns:env='http://schemas.xmlsoap.org/soap/envelope/'><env:Header></env:Header><env:Body><ns1:loginResponse xmlns:ns1='http://api.proteus.bluecatnetworks.com'></ns1:loginResponse></env:Body></env:Envelope>
+Mar 12, 2015 20:20:56 UTC <SOAP-ENV:Envelope xmlns:SOAP-ENC='http://schemas.xmlsoap.org/soap/encoding/' xmlns:ns0='http://schemas.xmlsoap.org/soap/encoding/' xmlns:ns1='http://api.proteus.bluecatnetworks.com' xmlns:ns2='http://schemas.xmlsoap.org/soap/envelope/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/' SOAP-ENV:encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'><SOAP-ENV:Header/><ns2:Body><ns1:logout/></ns2:Body></SOAP-ENV:Envelope>
+Mar 12, 2015 20:21:16 UTC Response status code: 500
+Mar 12, 2015 20:21:16 UTC Status message : Internal Server Error
+Mar 12, 2015 20:21:16 UTC Response body: <env:Envelope xmlns:env='http://schemas.xmlsoap.org/soap/envelope/'><env:Header></env:Header><env:Body><env:Fault xmlns:env='http://schemas.xmlsoap.org/soap/envelope/'><faultcode>env:Client</faultcode><faultstring>Unqualified {http://schemas.xmlsoap.org/soap/envelope/}Client fault</faultstring></env:Fault></env:Body></env:Envelope>
+Mar 12, 2015 20:21:16 UTC Task #1 (Test-Bluecat-1 (custom_Lab_Bluecat_Login_Logout)) completed successfully in 20 seconds
+Mar 12, 2015 20:21:16 UTC Input/Output values for Task #1 (Test-Bluecat-1 (custom_Lab_Bluecat_Login_Logout)):
+Mar 12, 2015 20:21:16 UTC [Mapped Input: lab_bluecat_network = 10.168.50.0]
+Mar 12, 2015 20:21:16 UTC [Mapped Input: lab_bluecat_devicename = ucsd-test2]
+Mar 12, 2015 20:21:16 UTC Completed workflow item number 2, with status Completed
+Mar 12, 2015 20:21:16 UTC Executing workflow item number 3
+Mar 12, 2015 20:21:17 UTC Completed workflow item number 3, with status Completed
+
+
+
+Service Request ID: 49
+Workflow Inputs:
+ - Bluecat_Network
+ - BlueCat_Device_Name
+
+
+Mar 12, 2015 20:42:30 UTC Request submitted
+Mar 12, 2015 20:42:32 UTC Executing workflow item number 1
+Mar 12, 2015 20:42:32 UTC Completed workflow item number 1, with status Completed
+Mar 12, 2015 20:42:38 UTC Executing workflow item number 2
+Mar 12, 2015 20:42:38 UTC Trigger context executeWorkFlowStep called 
+Mar 12, 2015 20:42:38 UTC Executing custom action Test-Bluecat-1 (custom_Lab_Bluecat_Login_Logout)
+Mar 12, 2015 20:42:38 UTC Executing custom action Test-Bluecat-1 (custom_Lab_Bluecat_Login_Logout)
+Mar 12, 2015 20:42:38 UTC Executing custom script for Lab_Bluecat_Login_Logout
+Mar 12, 2015 20:42:38 UTC DEBUG userName = bluecatapi
+Mar 12, 2015 20:42:38 UTC <SOAP-ENV:Envelope xmlns:SOAP-ENC='http://schemas.xmlsoap.org/soap/encoding/' xmlns:ns0='http://schemas.xmlsoap.org/soap/encoding/' xmlns:ns1='http://api.proteus.bluecatnetworks.com' xmlns:ns2='http://schemas.xmlsoap.org/soap/envelope/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/' SOAP-ENV:encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'><SOAP-ENV:Header/><ns2:Body><ns1:login><username>bluecatapi</username><password>1234qwer</password></ns1:login></ns2:Body></SOAP-ENV:Envelope>
+Mar 12, 2015 20:42:38 UTC Response status code: 200
+Mar 12, 2015 20:42:38 UTC Status message : OK
+
+Mar 12, 2015 20:42:38 UTC Response body: <env:Envelope xmlns:env='http://schemas.xmlsoap.org/soap/envelope/'><env:Header></env:Header><env:Body><ns1:loginResponse xmlns:ns1='http://api.proteus.bluecatnetworks.com'></ns1:loginResponse></env:Body></env:Envelope>
+
+Mar 12, 2015 20:42:38 UTC Response headers: [Lorg.apache.commons.httpclient.Header;@31728bad
+
+Mar 12, 2015 20:42:38 UTC Session Cookie: null
+
+Mar 12, 2015 20:42:38 UTC <SOAP-ENV:Envelope xmlns:SOAP-ENC='http://schemas.xmlsoap.org/soap/encoding/' xmlns:ns0='http://schemas.xmlsoap.org/soap/encoding/' xmlns:ns1='http://api.proteus.bluecatnetworks.com' xmlns:ns2='http://schemas.xmlsoap.org/soap/envelope/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/' SOAP-ENV:encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'><SOAP-ENV:Header/><ns2:Body><ns1:logout/></ns2:Body></SOAP-ENV:Envelope>
+Mar 12, 2015 20:42:58 UTC Response status code: 500
+Mar 12, 2015 20:42:58 UTC Status message : Internal Server Error
+Mar 12, 2015 20:42:58 UTC Response body: <env:Envelope xmlns:env='http://schemas.xmlsoap.org/soap/envelope/'><env:Header></env:Header><env:Body><env:Fault xmlns:env='http://schemas.xmlsoap.org/soap/envelope/'><faultcode>env:Client</faultcode><faultstring>Unqualified {http://schemas.xmlsoap.org/soap/envelope/}Client fault</faultstring></env:Fault></env:Body></env:Envelope>
+Mar 12, 2015 20:42:58 UTC Response headers: [Lorg.apache.commons.httpclient.Header;@57edf8ce
+Mar 12, 2015 20:42:58 UTC Task #1 (Test-Bluecat-1 (custom_Lab_Bluecat_Login_Logout)) completed successfully in 20 seconds
+Mar 12, 2015 20:42:58 UTC Input/Output values for Task #1 (Test-Bluecat-1 (custom_Lab_Bluecat_Login_Logout)):
+Mar 12, 2015 20:42:58 UTC [Mapped Input: lab_bluecat_network = 10.168.50.0]
+Mar 12, 2015 20:42:58 UTC [Mapped Input: lab_bluecat_devicename = test]
+Mar 12, 2015 20:42:58 UTC Completed workflow item number 2, with status Completed
+Mar 12, 2015 20:42:59 UTC Executing workflow item number 3
+Mar 12, 2015 20:42:59 UTC Completed workflow item number 3, with status Completed
+
+Service Request ID: 51
+Workflow Inputs:
+ - Bluecat_Network
+ - BlueCat_Device_Name
+
+
+Mar 13, 2015 17:04:06 UTC Request submitted
+Mar 13, 2015 17:04:08 UTC Executing workflow item number 1
+Mar 13, 2015 17:04:08 UTC Completed workflow item number 1, with status Completed
+Mar 13, 2015 17:04:14 UTC Executing workflow item number 2
+Mar 13, 2015 17:04:14 UTC Trigger context executeWorkFlowStep called 
+Mar 13, 2015 17:04:14 UTC Executing custom action Test-Bluecat-1 (custom_Lab_Bluecat_Login_Logout)
+Mar 13, 2015 17:04:14 UTC Executing custom action Test-Bluecat-1 (custom_Lab_Bluecat_Login_Logout)
+Mar 13, 2015 17:04:14 UTC Executing custom script for Lab_Bluecat_Login_Logout
+Mar 13, 2015 17:04:14 UTC DEBUG userName = bluecatapi
+Mar 13, 2015 17:04:14 UTC <SOAP-ENV:Envelope xmlns:SOAP-ENC='http://schemas.xmlsoap.org/soap/encoding/' xmlns:ns0='http://schemas.xmlsoap.org/soap/encoding/' xmlns:ns1='http://api.proteus.bluecatnetworks.com' xmlns:ns2='http://schemas.xmlsoap.org/soap/envelope/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/' SOAP-ENV:encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'><SOAP-ENV:Header/><ns2:Body><ns1:login><username>bluecatapi</username><password>1234qwer</password></ns1:login></ns2:Body></SOAP-ENV:Envelope>
+Mar 13, 2015 17:04:14 UTC Response status code: 200
+Mar 13, 2015 17:04:14 UTC Status message : OK
+
+Mar 13, 2015 17:04:14 UTC Response body: <env:Envelope xmlns:env='http://schemas.xmlsoap.org/soap/envelope/'><env:Header></env:Header><env:Body><ns1:loginResponse xmlns:ns1='http://api.proteus.bluecatnetworks.com'></ns1:loginResponse></env:Body></env:Envelope>
+
+Mar 13, 2015 17:04:14 UTC Set-Cookie: JSESSIONID=902BC30E5323F62A65D165D067EE8B11; Path=/Services 
+Mar 13, 2015 17:04:14 UTC Content-Type: text/xml;charset=UTF-8 
+Mar 13, 2015 17:04:14 UTC Transfer-Encoding: chunked 
+Mar 13, 2015 17:04:14 UTC Date: Fri, 13 Mar 2015 17:02:54 GMT 
+Mar 13, 2015 17:04:14 UTC Server: BAM 
+
+Mar 13, 2015 17:04:14 UTC Session Cookie: null
+Mar 13, 2015 17:04:14 UTC <SOAP-ENV:Envelope xmlns:SOAP-ENC='http://schemas.xmlsoap.org/soap/encoding/' xmlns:ns0='http://schemas.xmlsoap.org/soap/encoding/' xmlns:ns1='http://api.proteus.bluecatnetworks.com' xmlns:ns2='http://schemas.xmlsoap.org/soap/envelope/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/' SOAP-ENV:encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'><SOAP-ENV:Header/><ns2:Body><ns1:logout/></ns2:Body></SOAP-ENV:Envelope>
+Mar 13, 2015 17:04:34 UTC Response status code: 500
+Mar 13, 2015 17:04:35 UTC Status message : Internal Server Error
+Mar 13, 2015 17:04:35 UTC Response body: <env:Envelope xmlns:env='http://schemas.xmlsoap.org/soap/envelope/'><env:Header></env:Header><env:Body><env:Fault xmlns:env='http://schemas.xmlsoap.org/soap/envelope/'><faultcode>env:Client</faultcode><faultstring>Unqualified {http://schemas.xmlsoap.org/soap/envelope/}Client fault</faultstring></env:Fault></env:Body></env:Envelope>
+Mar 13, 2015 17:04:35 UTC Response headers: [Lorg.apache.commons.httpclient.Header;@4f315c86
+Mar 13, 2015 17:04:35 UTC Task #1 (Test-Bluecat-1 (custom_Lab_Bluecat_Login_Logout)) completed successfully in 20 seconds
+Mar 13, 2015 17:04:35 UTC Input/Output values for Task #1 (Test-Bluecat-1 (custom_Lab_Bluecat_Login_Logout)):
+Mar 13, 2015 17:04:35 UTC [Mapped Input: lab_bluecat_network = 10.168.50.0]
+Mar 13, 2015 17:04:35 UTC [Mapped Input: lab_bluecat_devicename = test]
+Mar 13, 2015 17:04:35 UTC Completed workflow item number 2, with status Completed
+Mar 13, 2015 17:04:35 UTC Executing workflow item number 3
+Mar 13, 2015 17:04:35 UTC Completed workflow item number 3, with status Completed
