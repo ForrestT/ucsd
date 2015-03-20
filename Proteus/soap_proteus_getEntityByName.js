@@ -1,6 +1,15 @@
 importPackage(org.apache.commons.httpclient);
 importPackage(org.apache.commons.httpclient.methods);
 
+
+function get_tag_value(body, tag) {
+	start_index = body.search("<"+tag+">") + tag.length + 2;
+	end_index = body.search("</"+tage+">");
+	value_len = end_index - start_index;
+	return body.substr(start_index, value_len);
+}
+
+
 //Get any task inputs, Set other variables/constants
 var strURL = "http://proteus-lab.lab.spectrum-health.org/Services/API";
 var strSoapAction = "";
@@ -40,21 +49,17 @@ var httpclient = new HttpClient();
 //POST API Call to Proteus and GET Response
 logger.addInfo("Executing Proteus SOAP API Method: " + apiMethod);
 var result = httpclient.executeMethod(post);
+var reponse = post.getResponseBodyAsString();
 
 //Parse info ou of result if reponse is successful, else error out of task
 if (result == 200) { 
 	logger.addInfo("Response status code: " + result);
-	logger.addInfo("Status message : "+post.getStatusText());
-	logger.addInfo("Response body: "+post.getResponseBodyAsString());
+	logger.addInfo("Status message : " + post.getStatusText());
+	logger.addInfo("Response body: " + response);
 
-	cookie_header = post.getResponseHeader("Set-Cookie").toString();
-    start_index = cookie_header.search("JSESSIONID"); //12
-    end_index = cookie_header.search(";"); //55
-    cookie_length = end_index - start_index //43
-    cookie = cookie_header.substr(start_index, cookie_length);
-	logger.addInfo(cookie);
+    config_id = get_tag_value(response, "id")
 
-	output.proteus_session_cookie = cookie;
+	output.proteus_config_id = config_id;
 }
 else {
 	logger.addError("Proteus SOAP API call '"+apiMethod+"()' failed with code: " + result);
