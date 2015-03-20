@@ -4,7 +4,7 @@ importPackage(org.apache.commons.httpclient.methods);
 
 function get_tag_value(body, tag) {
 	start_index = body.search("<"+tag+">") + tag.length + 2;
-	end_index = body.search("</"+tage+">");
+	end_index = body.search("</"+tag+">");
 	value_len = end_index - start_index;
 	return body.substr(start_index, value_len);
 }
@@ -58,7 +58,7 @@ if (result == 200) {
 	logger.addInfo("Status message : " + post.getStatusText());
 	logger.addInfo("Response body: " + response);
     config_id = get_tag_value(response, "id");
-	output.proteus_config_id = config_id;
+	output.proteus_configuration_id = config_id;
 }
 else {
 	logger.addError("Proteus SOAP API call '"+apiMethod+"()' failed with code: " + result);
