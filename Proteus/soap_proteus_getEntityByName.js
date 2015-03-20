@@ -14,9 +14,9 @@ function get_tag_value(body, tag) {
 var strURL = "http://proteus-lab.lab.spectrum-health.org/Services/API";
 var strSoapAction = "";
 var apiMethod = "getEntityByName";
-var parentId = "0"
-var entityName = "Lab"
-var entityType = "Configuration"
+var parentId = "0";
+var entityName = "Lab";
+var entityType = "Configuration";
 var cookie = input.proteus_session_cookie;
 
 //Set SOAP XML for API call
@@ -44,21 +44,20 @@ var post = new PostMethod(strURL);
 var entity = new StringRequestEntity(msgXML, "text/xml", "ISO-8859-1");
 post.setRequestEntity(entity);
 post.setRequestHeader("SOAPAction", strSoapAction);
+post.setRequestHeader("Cookie", cookie);
 var httpclient = new HttpClient();
 
 //POST API Call to Proteus and GET Response
 logger.addInfo("Executing Proteus SOAP API Method: " + apiMethod);
 var result = httpclient.executeMethod(post);
-var reponse = post.getResponseBodyAsString();
+var response = post.getResponseBodyAsString();
 
 //Parse info ou of result if reponse is successful, else error out of task
 if (result == 200) { 
 	logger.addInfo("Response status code: " + result);
 	logger.addInfo("Status message : " + post.getStatusText());
 	logger.addInfo("Response body: " + response);
-
-    config_id = get_tag_value(response, "id")
-
+    config_id = get_tag_value(response, "id");
 	output.proteus_config_id = config_id;
 }
 else {
