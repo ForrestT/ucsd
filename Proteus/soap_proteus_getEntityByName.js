@@ -1,16 +1,19 @@
 importPackage(org.apache.commons.httpclient);
 importPackage(org.apache.commons.httpclient.methods);
 
-//Set basic variables and constants
+//Get any task inputs, Set other variables/constants
 var strURL = "http://proteus-lab.lab.spectrum-health.org/Services/API";
 var strSoapAction = "";
-var apiMethod = "login";
-var userName = "bluecatapi"; //input.userName;
-var password = "1234qwer"; //input.password;
+var apiMethod = "getEntityByName";
+var parentId = "0"
+var entityName = "Lab"
+var entityType = "Configuration"
+var cookie = input.proteus_session_cookie;
 
 //Set SOAP XML for API call
-var apiXML = "<username>"+userName+"</username>"
-        	+"<password>"+password+"</password>";
+var apiXML ="<parentId>"+parentId+"</parentId>"
+			+"<name>"+entityName+"</name>"
+			+"<type>"+entityType+"</type>";
 var msgXML = "<SOAP-ENV:Envelope "
 				+"xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" "
 				+"xmlns:ns0=\"http://schemas.xmlsoap.org/soap/encoding/\" "
