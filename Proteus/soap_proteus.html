@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Bluecat SOAP API script testing</h1>
+<p>Tests extracting the Cookie out of a reponse header array, see console log</p>
+
+<button onclick="soaptime()">Run</button>
+
+<script>
+  function soaptime() {
+    console.log("starting...");
+    var headers = ["Set-Cookie: JSESSIONID=902BC30E5323F62A65D165D067EE8B11; Path=/Services",
+                  "Content-Type: text/xml;charset=UTF-8",
+                  "Transfer-Encoding: chunked",
+                  "Date: Fri, 13 Mar 2015 17:02:54 GMT",
+                  "Server: BAM"];
+    for (var i = 0; i < headers.length; i++) {
+      console.log(headers[i]);
+      if (headers[i].search("Set-Cookie") > -1) {
+        start_index = headers[i].search("JSESSIONID"); //12
+        console.log(start_index);
+        end_index = headers[i].search(";"); //55
+        console.log(end_index);
+        cookie_length = end_index - start_index //43
+        console.log(cookie_length)
+        cookie = headers[i].substr(start_index, cookie_length);
+        console.log(cookie);
+        break;
+      }
+    }
+    console.log("Done");
+  }
+</script>
+
+</body>
+</html>

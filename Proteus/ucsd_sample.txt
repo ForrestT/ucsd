@@ -1,0 +1,51 @@
+SAMPLE SOAP SCRIPT FOR UCSD
+
+importPackage(org.apache.commons.httpclient);
+importPackage(org.apache.commons.httpclient.methods);
+
+var strURL = "http://10.101.216.33/arsys/services/ARService?server=nvm1815pdv&webService=WIP_SubmitCompCI";
+var strSoapAction = "urn:WIP_SubmitCompCI/New_Set_Operation_1";
+ 
+var userName = input.userName;
+var password = input.password;
+var Physical_Memory_c = input.TotalPhysicalMemory;
+var Instance_ID = input.instance_ID;
+
+var msgXML ="<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:WIP_SubmitCI\">"
+  +"<soapenv:Header>"
+     +"<urn:AuthenticationInfo>"
+        +"<urn:userName>"+userName+"</urn:userName>"
+         +"<urn:password>"+password+"</urn:password>"
+         +"<!--Optional:-->"
+         +"<urn:authentication></urn:authentication>"
+         +"<!--Optional:-->"
+         +"<urn:locale></urn:locale>"
+         +"<!--Optional:-->"
+         +"<urn:timeZone></urn:timeZone>"
+      +"</urn:AuthenticationInfo>"
+   +"</soapenv:Header>"
+   +"<soapenv:Body>"
+     +"<urn:New_Set_Operation_1>"     
+         +"<!--Optional:-->"
+         +"<urn:Physical_Memory__c>"+Physical_Memory_c+"</urn:Physical_Memory__c>"
+         +"<!--Optional:-->"
+         +"<urn:Instance_ID>"+Instance_ID+"</urn:Instance_ID>"
+      +"</urn:New_Set_Operation_1>"
+   +"</soapenv:Body>"
++"</soapenv:Envelope>"
+
+logger.addInfo("DEBUG userName = " + userName);
+
+logger.addInfo(msgXML);
+
+var post = new PostMethod(strURL);
+
+var entity = new StringRequestEntity(msgXML, "text/xml", "ISO-8859-1");
+post.setRequestEntity(entity);
+post.setRequestHeader("SOAPAction", strSoapAction);
+var httpclient = new HttpClient();
+
+var result = httpclient.executeMethod(post);
+logger.addInfo("Response status code: " + result);
+logger.addInfo("Status message : "+post.getStatusText());
+logger.addInfo("Response body: "+post.getResponseBodyAsString());
