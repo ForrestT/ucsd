@@ -5,7 +5,9 @@
 <h1>Bluecat SOAP API script testing</h1>
 <p>Tests extracting the Cookie out of a reponse header array, see console log</p>
 
-<button onclick="soaptime()">Run</button>
+<button onclick="soaptime()">Run SOAP</button>
+
+<button onclick="cidr_parser('172.30.254.12/12')">Run CIDR</button>
 
 <script>
   function soaptime() {
@@ -30,6 +32,40 @@
       }
     }
     console.log("Done");
+  }
+
+  function ipv4_to_int(ip) {
+    var o = ip.split(".");
+    var num = (parseInt(o[0]) << 24) | (parseInt(o[1]) << 16) | (parseInt(o[2]) << 8) | parseInt(o[3]);
+    return num;
+  }
+
+  function int_to_ipv4(num) {
+    var o1 = num >>> 24;
+    var o2 = (num << 8) >>> 24;
+    var o3 = (num << 16) >>> 24;
+    var o4 = (num << 24) >>> 24;
+    var ipv4 = o1.toString() +'.'+ o2.toString() +'.'+ o3.toString() +'.'+ o4.toString();
+    return ipv4;
+  }
+
+  function cidr_parser(cidr='10.168.50.12/23') {
+    //var cidr = "10.168.50.12/23";
+    console.log("CIDR = " + cidr);
+    var temp = cidr.split("/");
+    // var octets = temp[0].split(".");
+    // console.log(octets);
+    // var addr = (parseInt(octets[0]) << 24) | (parseInt(octets[1]) << 16) | (parseInt(octets[2]) << 8) | parseInt(octets[3]);
+    var addr = ipv4_to_int(temp[0]);
+    ipv4_addr = int_to_ipv4(addr);
+    console.log(ipv4_addr);
+    console.log(temp[1]);
+    var mask = -1 << (32 - parseInt(temp[1]));
+    ipv4_mask = int_to_ipv4(mask);
+    console.log(ipv4_mask);
+    var net = addr & mask;
+    ipv4_net = int_to_ipv4(net);
+    console.log(ipv4_net);
   }
 </script>
 
