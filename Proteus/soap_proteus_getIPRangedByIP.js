@@ -61,7 +61,7 @@ if (result == 200) {
     temp = properties[0].split("=");
     network_cidr = temp[1];
     temp = properties[5].split("=");
-    network_gateway = temp[1]
+    network_gateway = temp[1];
 	output.proteus_network_id = network_id;
 	output.proteus_network_cidr = network_cidr;
 	output.proteus_network_gateway = network_gateway;
