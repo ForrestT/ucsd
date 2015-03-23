@@ -56,12 +56,16 @@ var response = post.getResponseBodyAsString();
 if (result == 200) { 
 	logger.addInfo("Response status code: " + result);
 	logger.addInfo("Status message : " + post.getStatusText());
-    network_id = get_tag_value(response, "id");
-    properties = get_tag_value(response, "properties").split("|");
-    temp = properties[0].split("=");
-    network_cidr = temp[1];
+    var network_id = get_tag_value(response, "id");
+    var properties = get_tag_value(response, "properties").split("|");
+    var temp = properties[0].split("=");
+    var network_cidr = temp[1];
     temp = properties[5].split("=");
+<<<<<<< HEAD
     network_gateway = temp[1];
+=======
+    var network_gateway = temp[1];
+>>>>>>> a9c446fd720f87b3a4ea61910bb20028cd9ad4af
 	output.proteus_network_id = network_id;
 	output.proteus_network_cidr = network_cidr;
 	output.proteus_network_gateway = network_gateway;

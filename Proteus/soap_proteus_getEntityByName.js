@@ -62,5 +62,5 @@ if (result == 200) {
 }
 else {
 	logger.addError("Proteus SOAP API call '"+apiMethod+"()' failed with code: " + result);
-	ctxt.setFailed("Unable to login to Proteus SOAP API");
+	ctxt.setFailed("Error Executing Proteus SOAP API: " + apiMethod);
 }
