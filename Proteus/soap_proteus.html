@@ -7,7 +7,7 @@
 
 <button onclick="soaptime()">Run SOAP</button>
 <br/>
-
+<br/>
 CIDR: <input type="text" id="cidr_text">
 <button onclick="cidr_parser(document.getElementById('cidr_text').value)">Get Network and Netmask</button>
 
@@ -54,19 +54,14 @@ CIDR: <input type="text" id="cidr_text">
   }
 
   function cidr_parser(cidr='10.168.50.12/23') {
-    console.log("CIDR = " + cidr);
     var temp = cidr.split("/");
     var addr = ipv4_to_int(temp[0]);
     ipv4_addr = int_to_ipv4(addr);
-    console.log(ipv4_addr);
-    console.log(temp[1]);
     var mask = -1 << (32 - parseInt(temp[1]));
     ipv4_mask = int_to_ipv4(mask);
-    console.log(ipv4_mask);
     var net = addr & mask;
     ipv4_net = int_to_ipv4(net);
     ipv4_gw = int_to_ipv4(net + 1);
-    console.log(ipv4_net);
     var output = "<h2>CIDR: " + cidr 
     		+ "<br/>NET:  " + ipv4_net 
     		+ "<br/>MASK: " + ipv4_mask 
