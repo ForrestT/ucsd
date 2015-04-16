@@ -11,7 +11,7 @@ function get_tag_value(body, tag) {
 
 
 //Get any task inputs, Set other variables/constants
-var strURL = "http://proteus-lab.lab.spectrum-health.org/Services/API";
+var strURL = input.proteus_API_URL;
 var strSoapAction = "";
 var apiMethod = "getIPRangedByIP";
 var containerId = input.proteus_configuration_id;
@@ -52,20 +52,17 @@ logger.addInfo("Executing Proteus SOAP API Method: " + apiMethod);
 var result = httpclient.executeMethod(post);
 var response = post.getResponseBodyAsString();
 
-//Parse info ou of result if reponse is successful, else error out of task
+//Parse info out of result if reponse is successful, else error out of task
 if (result == 200) { 
 	logger.addInfo("Response status code: " + result);
 	logger.addInfo("Status message : " + post.getStatusText());
-    var network_id = get_tag_value(response, "id");
-    var properties = get_tag_value(response, "properties").split("|");
-    var temp = properties[0].split("=");
-    var network_cidr = temp[1];
-    temp = properties[5].split("=");
-<<<<<<< HEAD
-    network_gateway = temp[1];
-=======
-    var network_gateway = temp[1];
->>>>>>> a9c446fd720f87b3a4ea61910bb20028cd9ad4af
+	var network_id = get_tag_value(response, "id");
+	var properties = get_tag_value(response, "properties").split("|");
+	var temp = properties[0].split("=");
+	var network_cidr = temp[1];
+	temp = properties[5].split("=");
+	network_gateway = temp[1];
+	var network_gateway = temp[1];
 	output.proteus_network_id = network_id;
 	output.proteus_network_cidr = network_cidr;
 	output.proteus_network_gateway = network_gateway;

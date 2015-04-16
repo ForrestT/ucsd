@@ -2,7 +2,7 @@ importPackage(org.apache.commons.httpclient);
 importPackage(org.apache.commons.httpclient.methods);
 
 //Get any task inputs, Set other variables/constants
-var strURL = "http://proteus-lab.lab.spectrum-health.org/Services/API";
+var strURL = input.proteus_API_URL;
 var strSoapAction = "";
 var apiMethod = "logout";
 var cookie = input.proteus_session_cookie;

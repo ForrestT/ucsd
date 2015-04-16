@@ -11,7 +11,7 @@ function get_tag_value(body, tag) {
 
 
 //Get any task inputs, Set other variables/constants
-var strURL = "http://proteus-lab.lab.spectrum-health.org/Services/API";
+var strURL = input.proteus_API_URL;
 var strSoapAction = "";
 var apiMethod = "getEntityByName";
 var parentId = "0";
