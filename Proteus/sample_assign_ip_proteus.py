@@ -1,5 +1,6 @@
 from suds.client import Client
 from time import sleep
+from sys import exit
 import getpass
 
 url = 'http://proteus-lab.lab.spectrum-health.org/Services/API?wsdl'
@@ -26,7 +27,7 @@ deployment_status = {-1:'EXECUTING',
 
 action = 'MAKE_STATIC'
 mac_addr = ''
-net_properties = 'offset=10.168.50.31|excludeDHCPRange=False'
+#net_properties = 'offset=10.168.50.31|excludeDHCPRange=False'
 hostinfo = ''
 ip_properties = 'name=' + hostname
 
@@ -42,7 +43,16 @@ for detail in net_details:
 		net_cidr = detail.split('=')[1]
 	elif 'gateway=' in detail:
 		net_gw = detail.split('=')[1]
+temp = net_gw.split('.')
+temp[3] = '31'
+offset = '.'.join(temp)
+net_properties = 'offset=' + offset + '|excludeDHCPRange=True'
 assigned_ip = client.service.getNextIP4Address(net_id, net_properties)
+print(assigned_ip)
+if assigned_ip == None:
+	print('No IP Addresses available in network: ' + net_cidr)
+	client.service.logout()
+	exit()
 ip_id = client.service.assignIP4Address(config_id, assigned_ip, mac_addr, hostinfo, action, ip_properties)
 result = client.service.getIP4Address(net_id, assigned_ip)
 

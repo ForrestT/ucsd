@@ -2,42 +2,13 @@
 <html>
 <body>
 
-<h1>Bluecat SOAP API script testing</h1>
-<p>Tests extracting the Cookie out of a reponse header array, see console log</p>
-
-<button onclick="soaptime()">Run SOAP</button>
-<br/>
+<h1>IPv4 Parsing playground in JavaScript</h1>
+<p>Testing functions for subnetting operations</p>
 <br/>
 CIDR: <input type="text" id="cidr_text">
 <button onclick="cidr_parser(document.getElementById('cidr_text').value)">Get Network and Netmask</button>
-
 <div id="cidr_output"></div>
-
 <script>
-  function soaptime() {
-    console.log("starting...");
-    var headers = ["Set-Cookie: JSESSIONID=902BC30E5323F62A65D165D067EE8B11; Path=/Services",
-                  "Content-Type: text/xml;charset=UTF-8",
-                  "Transfer-Encoding: chunked",
-                  "Date: Fri, 13 Mar 2015 17:02:54 GMT",
-                  "Server: BAM"];
-    for (var i = 0; i < headers.length; i++) {
-      console.log(headers[i]);
-      if (headers[i].search("Set-Cookie") > -1) {
-        start_index = headers[i].search("JSESSIONID"); //12
-        console.log(start_index);
-        end_index = headers[i].search(";"); //55
-        console.log(end_index);
-        cookie_length = end_index - start_index; //43
-        console.log(cookie_length);
-        cookie = headers[i].substr(start_index, cookie_length);
-        console.log(cookie);
-        break;
-      }
-    }
-    console.log("Done");
-  }
-
   function ipv4_to_int(ip) {
     var o = ip.split(".");
     var num = (parseInt(o[0]) << 24) | (parseInt(o[1]) << 16) | (parseInt(o[2]) << 8) | parseInt(o[3]);
@@ -57,7 +28,14 @@ CIDR: <input type="text" id="cidr_text">
     var o4 = (num << 24) >>> 24;
   	o4 = o4.toString(2);
   	while (o4.length < 8) o4 = "0" + o4;
-  	return o1+o2+o3+o4;
+  	return o1+'.'+o2+'.'+o3+'.'+o4;
+  	// var o12 = num >>> 16;
+  	// o12 = o12.toString(2);
+  	// while (o12.length < 16) o12 = "0" + o12;
+   //  var o34 = (num << 16) >>> 16;
+  	// o34 = o34.toString(2);
+  	// while (o34.length < 16) o34 = "0" + o34;
+  	// return o12+o34;
   }
 
   function int_to_ipv4(num) {
@@ -81,14 +59,11 @@ CIDR: <input type="text" id="cidr_text">
     var bin_net = int_to_binary_string(net);
     var ipv4_net = int_to_ipv4(net);
     var ipv4_gw = int_to_ipv4(net + 1);
-    console.log(bin_addr);
-    console.log(bin_mask);
-    console.log(bin_net);
     var output = "<h2>CIDR: " + cidr 
     		+ "<br/>NET:  " + ipv4_net 
     		+ "<br/>MASK: " + ipv4_mask 
     		+ "<br/>GW:   " + ipv4_gw
-    		+ "<br/><br/>BINARY FUN<br/>"
+    		+ "<br/><br/>BINARY FUN (dots only to aid readability)<br/>"
     		+ "<br/>" + bin_addr + " (" + ipv4_addr + ") Address"
     		+ "<br/>" + bin_mask + " (" + ipv4_mask + ") Subnet Mask, Number of '1's equal to number after '/' in CIDR"
     		+ "<br/>" + bin_net + " (" + ipv4_net + ") Network Address, Result of Address AND Subnet Mask"
