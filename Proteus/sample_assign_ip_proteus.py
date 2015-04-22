@@ -31,9 +31,14 @@ mac_addr = ''
 hostinfo = ''
 ip_properties = 'name=' + hostname
 
+# Login
 client.service.login(username,password)
+
+# getEntityByName
 result = client.service.getEntityByName(0,'Lab','Configuration')
 config_id = result['id']
+
+# getIPRangedByIP
 result = client.service.getIPRangedByIP(config_id,'IP4Network',net_addr)
 net_id = result['id']
 net_name = result['name']
@@ -47,21 +52,33 @@ temp = net_gw.split('.')
 temp[3] = '31'
 offset = '.'.join(temp)
 net_properties = 'offset=' + offset + '|excludeDHCPRange=True'
+
+# getNextIP4Address
 assigned_ip = client.service.getNextIP4Address(net_id, net_properties)
 print(assigned_ip)
 if assigned_ip == None:
 	print('No IP Addresses available in network: ' + net_cidr)
 	client.service.logout()
 	exit()
+
+# assignIP4Address
 ip_id = client.service.assignIP4Address(config_id, assigned_ip, mac_addr, hostinfo, action, ip_properties)
+
+# getIP4Address
 result = client.service.getIP4Address(net_id, assigned_ip)
 
+# getDeploymentRoles
 result = client.service.getDeploymentRoles(net_id)
 deployment_id = result[0][0]['id']
+
+# getServerForRole
 result = client.service.getServerForRole(deployment_id)
 server_id = result['id']
+
+# deployServerConfig
 client.service.deployServerConfig(server_id, 'services=DHCP')
 
+# getServerDeploymentStatus
 while True:
 	status = client.service.getServerDeploymentStatus(server_id,'')
 	print('DHCP Config Deployment Status:\t' + deployment_status[status])
@@ -70,8 +87,10 @@ while True:
 	else:
 		sleep(5)
 
+# Logout
 client.service.logout()
 
+# Final Output
 print('\nIP address  : ' + assigned_ip)
 print('Network CIDR: ' + net_cidr)
 print('Gateway IP  : ' + net_gw)
